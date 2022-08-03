@@ -1,5 +1,5 @@
 body {
-	background-image: url('https://images.pexels.com/photos/4439412/pexels-photo-4439412.jpeg?cs=srgb&dl=pexels-vie-studio-4439412.jpg&fm=jpg');
+    background-image: url('https://images.pexels.com/photos/6168064/pexels-photo-6168064.jpeg?cs=srgb&dl=pexels-vie-studio-6168064.jpg&fm=jpg');
 	text-align: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -7,13 +7,14 @@ body {
 	background-attachment: fixed;
 	font-size: large;
 	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: aliceblue;
 }
 .textName{
-	background-color: #e0b1cb;
+	background-color: #606c38;
 }
 
 .greetPeople{
-	background-color: #e0b1cb;
+	background-color: #606c38;
 }
 .container {
 	display: flex;
@@ -86,19 +87,19 @@ body {
 .greetSection{
 
 	text-align: center;
-	background-color: #e0b1cb;
+	background-color: #283618;
 
 	margin: auto;
 }
 .greetMeButton{
-	background-color: #ff006e;
+	background-color: #283618;
 	margin-right: 20px;
 	color: aliceblue;
 	border-color: aliceblue;
 	border-radius: 10px;
 }
 .resetCounterButton{
-	background-color: #ff006e;
+	background-color: #283618;
 	margin-left: 20px;
 	color: aliceblue;
 	border-color: aliceblue;
@@ -107,14 +108,14 @@ body {
 
 @media (max-width: 750px){
 	.greetMeButton{
-		background-color: #ff006e;
+		background-color: #283618;
 		margin-right: 0px;
 		color: aliceblue;
 		border-color: aliceblue;
 		border-radius: 10px;
 	}
 	.resetCounterButton{
-		background-color: #ff006e;
+		background-color: #283618;
 		margin-left: 0px;
 		color: aliceblue;
 		border-color: aliceblue;
