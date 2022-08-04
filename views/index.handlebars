@@ -18,7 +18,7 @@
             <span class="textboxName">
                 <form action="/greetings" method="POST">
                     <label for="fname">Greeting </label>
-                    <input class="textName" type="submit" name="button" value="" placeholder="Enter your name"
+                    <input class="textName" type="text" name="myName" value="" placeholder="Enter your name"
                         class="fname">
                 </form>
             </span>
@@ -30,7 +30,6 @@
 
         <div class="languageTypes">
             <div class="radiobuttons">
-                <form action="/language" method="POST">
                     <label class="">
                         <input type="radio" name="languageTypeRadio" class="languageTypeRadio" value="english">
                         <span class="label-body">English</span>
@@ -46,12 +45,12 @@
                 </form>
             </div>
             <div class="buttons">
-                <button class="button-primary greetMeButton" type="button" name="button">Greet Me</button>
+                <button class="button-primary greetMeButton" type="submit" name="button">Greet Me</button>
             </div>
 
         </div>
         <div class="greetSection">
-            <span class="greeting">.</span>
+            <span class="greeting"></span>
 
         </div>
 

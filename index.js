@@ -3,6 +3,8 @@ const exphbs = require("express-handlebars");//import the express-handlebars mod
 const bodyParser = require("body-parser")
 const app = express();
 
+
+
 app.engine("handlebars", exphbs.engine({ defaultLayout: "main" }));
 //app.engine(ext, callback)
 //The app.engine() function is used to register the given template engine callback as ext
@@ -19,6 +21,8 @@ app.use(bodyParser.json());
 app.get("/", function (req, res) {
     res.render("index");
   });
+
+
   let PORT = process.env.PORT || 3012;
 
   app.listen(PORT, function () {
