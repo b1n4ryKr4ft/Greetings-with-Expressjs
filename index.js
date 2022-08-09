@@ -2,6 +2,8 @@ const express = require("express");
 const exphbs = require("express-handlebars");//import the express-handlebars module
 const bodyParser = require("body-parser")
 const app = express();
+const greetingNames = require("./greet.js")
+const greetMe = greetingNames()
 
 
 
@@ -18,12 +20,44 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
+
 app.get("/", function (req, res) {
-    res.render("index");
+  function flashyMessage (){
+    var colorChoice = ['red'];
+    var myColor;
+    if(colorChoice.length > 1){
+        for (var i = 0; i < Infinity; i++) {
+            myColor = colorChoice[i]
+            colorChoice.push('red')
+             return myColor;
+        }
+
+       }
+  }
+    res.render("index", {
+      greeted: greetMe.returnChosenLanguage(),
+      count: greetMe.getMyCount(),
+      errMessage: greetMe.returnEmptyButtonsAndTextbox(),
+    });
+
+  });
+
+app.post('/greetings', function (req, res) {
+  console.log(req.body.name)
+  console.log(req.body.languageTypeRadio)
+  greetMe.enterNameAndLanguage(req.body.name, req.body.languageTypeRadio)
+  greetMe.notCheckedbutton(req.body.name, req.body.languageTypeRadio)
+  res.redirect("/");
+});
+
+app.get("/actions", function (req, res) {
+  res.render("actions")
+
+
   });
 
 
-  let PORT = process.env.PORT || 3012;
+  let PORT = process.env.PORT || 3013;
 
   app.listen(PORT, function () {
     console.log("App starting on port", PORT); // message displayed on the terminal

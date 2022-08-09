@@ -8,6 +8,7 @@ body {
 	font-size: large;
 	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: aliceblue;
+
 }
 .textName{
 	background-color: #606c38;
@@ -19,6 +20,7 @@ body {
 .container {
 	display: flex;
 	flex-flow: column wrap;
+	background: rgba(96, 108, 56, .3)
 }
 .container > * {
 	padding: 10px;
@@ -43,20 +45,17 @@ body {
 }
 .enterName{
 	display: flex;
-	padding-left:30%;
+	margin: auto;
 }
+
 .enterName div{
 	flex: 2;
 }
 .enterName .count {
 	font-size:4em;
-	 margin-left: 2%;
 }
 .textboxName {
 	padding: 1.3em;
-}
-.counttracker {
-	margin-left: 10%;
 }
 .languageTypes {
 	display: flex;
@@ -70,6 +69,7 @@ body {
 .radiobuttons {
 	justify-content: center;
 	margin: auto;
+	margin-top: 20px;
 }
 
 .languageTypes button {
@@ -88,23 +88,39 @@ body {
 
 	text-align: center;
 	background-color: #283618;
-
 	margin: auto;
 }
 .greetMeButton{
 	background-color: #283618;
-	margin-right: 20px;
 	color: aliceblue;
 	border-color: aliceblue;
 	border-radius: 10px;
+	width: 150px;
+	height: 50px;
+	font-size: large;
+	margin-top: 20px;
+	margin-left: 30px;
+
 }
 .resetCounterButton{
 	background-color: #283618;
-	margin-left: 20px;
 	color: aliceblue;
 	border-color: aliceblue;
 	border-radius: 10px;
 }
+.errorMessages{
+	font-size: 30px;
+	padding-top: 150px;
+}
+.errorMessages{
+	animation: blinker 1s step-start infinite;
+  }
+
+  @keyframes blinker {
+	50% {
+	  opacity: 0;
+	}
+  }
 
 @media (max-width: 750px){
 	.greetMeButton{

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <script src="/path/to/flash.min.js"></script>
     <title>Home</title>
 </head>
 
@@ -18,40 +19,45 @@
             <span class="textboxName">
                 <form action="/greetings" method="POST">
                     <label for="fname">Greeting </label>
-                    <input class="textName" type="text" name="myName" value="" placeholder="Enter your name"
+                    <input class="textName" type="text" name="name" value="" placeholder="Enter your name"
                         class="fname">
+                    <div class="languageTypes">
+                        <div class="radiobuttons">
+                            <label class="">
+                                <input type="radio" name="languageTypeRadio" class="languageTypeRadio" value="english">
+                                <span class="label-body">English</span>
+                            </label>
+                            <label class="">
+                                <input type="radio" name="languageTypeRadio" class="languageTypeRadio"
+                                    value="afrikaans">
+                                <span class="label-body">Afrikaans</span>
+                            </label>
+                            <label class="">
+                                <input type="radio" name="languageTypeRadio" class="languageTypeRadio" value="isiXhosa">
+                                <span class="label-body">isiXhosa</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button class="button-primary greetMeButton" type="submit" name="button">Greet Me</button>
+                    </div>
                 </form>
             </span>
+
             <span class="counttracker">
-                <span class="count"></span>
+                <span class="count">{{count}}</span>
             </span>
-
-        </div>
-
-        <div class="languageTypes">
-            <div class="radiobuttons">
-                    <label class="">
-                        <input type="radio" name="languageTypeRadio" class="languageTypeRadio" value="english">
-                        <span class="label-body">English</span>
-                    </label>
-                    <label class="">
-                        <input type="radio" name="languageTypeRadio" class="languageTypeRadio" value="afrikaans">
-                        <span class="label-body">Afrikaans</span>
-                    </label>
-                    <label class="">
-                        <input type="radio" name="languageTypeRadio" class="languageTypeRadio" value="isiXhosa">
-                        <span class="label-body">isiXhosa</span>
-                    </label>
-                </form>
-            </div>
-            <div class="buttons">
-                <button class="button-primary greetMeButton" type="submit" name="button">Greet Me</button>
-            </div>
 
         </div>
         <div class="greetSection">
-            <span class="greeting"></span>
+            <span class="greeting">{{greeted}}</span>
 
+        </div>
+        <div class="errorMessages">
+            <span class="greeting}">{{errMessage}}</span>
+        </div>
+                <div class="Names">
+            <a href="/actions">Greeted Names</a>
         </div>
 
     </div>
