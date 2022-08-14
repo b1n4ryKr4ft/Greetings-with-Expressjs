@@ -3,10 +3,10 @@ module.exports = function greetMeInLangage(){
 
     let giveMeName;
     let languageChoice;
-    let count = 0;
+    let count;
     let greetedNamesArray = [];
     let returnForEmptyButtons;
-
+    let typeOfLanguage;
 
 
     function notCheckedbutton(nameIn, languageType){
@@ -33,11 +33,13 @@ module.exports = function greetMeInLangage(){
 
     function enterNameAndLanguage(aNameIn, LanguageIn){
         giveMeName = aNameIn;
+        typeOfLanguage = LanguageIn;
         if (LanguageIn == "english" && giveMeName !==""){
             languageChoice = "Hello, " + giveMeName;
             if (!greetedNamesArray.includes(giveMeName.toUpperCase())){
                 greetedNamesArray.push(giveMeName.toUpperCase());
                 count = greetedNamesArray.filter(word => word !== '').length;
+
                }
            }
 
@@ -46,6 +48,7 @@ module.exports = function greetMeInLangage(){
             if (!greetedNamesArray.includes(giveMeName.toUpperCase())){
                 greetedNamesArray.push(giveMeName.toUpperCase());
                 count = greetedNamesArray.filter(word => word !== '').length;
+
                }
            }
         else  if (LanguageIn == "isiXhosa" && giveMeName !==""){
@@ -59,39 +62,33 @@ module.exports = function greetMeInLangage(){
                 languageChoice = '';
         }
     }
-    function getZeroCount(){
-        count = 0;
-        return count;
-    }
     function returnName(){
         return giveMeName;
     }
     function returnChosenLanguage(){
         return languageChoice;
     }
-    function returnLanguage(){
-         languageChoice = '.'
-         return languageChoice;
-    }
     function getMyCount(){
 
         return count;
     }
+    function getLangChoice(){
+        return typeOfLanguage;
+    }
     function returnStoredInArray(){
-        return greetedNamesArray
+        return greetedNamesArray;
     }
     function returnEmptyButtonsAndTextbox(){
-        return returnForEmptyButtons
+        return returnForEmptyButtons;
     }
     return{
         enterNameAndLanguage,
         returnChosenLanguage,
-        returnLanguage,
         returnName,
         getMyCount,
         returnStoredInArray,
-        getZeroCount,
         notCheckedbutton,
         returnEmptyButtonsAndTextbox,
+        getLangChoice
     }
 }

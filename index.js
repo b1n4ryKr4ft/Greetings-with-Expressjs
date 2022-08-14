@@ -22,18 +22,6 @@ app.use(bodyParser.json());
 
 
 app.get("/", function (req, res) {
-  function flashyMessage (){
-    var colorChoice = ['red'];
-    var myColor;
-    if(colorChoice.length > 1){
-        for (var i = 0; i < Infinity; i++) {
-            myColor = colorChoice[i]
-            colorChoice.push('red')
-             return myColor;
-        }
-
-       }
-  }
     res.render("index", {
       greeted: greetMe.returnChosenLanguage(),
       count: greetMe.getMyCount(),
@@ -51,7 +39,10 @@ app.post('/greetings', function (req, res) {
 });
 
 app.get("/actions", function (req, res) {
-  res.render("actions")
+  res.render('actions', {count: greetMe.getMyCount(),
+                         languageChoice: greetMe.getLangChoice(),
+                         Name: greetMe.returnName()
+          })
 
 
   });
