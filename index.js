@@ -46,8 +46,6 @@ app.get("/actions", function (req, res) {
   });
 
 
-  let PORT = process.env.PORT || 3010;
-
-  app.listen(PORT, function () {
-    console.log("App starting on port", PORT); // message displayed on the terminal
-  });
+  app.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+    });
