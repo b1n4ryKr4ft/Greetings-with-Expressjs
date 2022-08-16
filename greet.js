@@ -3,10 +3,9 @@ module.exports = function greetMeInLangage(){
 
     let giveMeName;
     let languageChoice;
-    let count;
-    let greetedNamesArray = [];
+    let count = 0;
     let returnForEmptyButtons;
-    let typeOfLanguage;
+    let counted = {};
 
 
     function notCheckedbutton(nameIn, languageType){
@@ -33,62 +32,69 @@ module.exports = function greetMeInLangage(){
 
     function enterNameAndLanguage(aNameIn, LanguageIn){
         giveMeName = aNameIn;
+        let giveMeName2 = aNameIn.toUpperCase();
+        let alphabet = /^[a-z A-Z]+$/;
         typeOfLanguage = LanguageIn;
-        if (LanguageIn == "english" && giveMeName !==""){
+        if (LanguageIn == "english" && giveMeName !=="" && alphabet.test(giveMeName )){
             languageChoice = "Hello, " + giveMeName;
-            if (!greetedNamesArray.includes(giveMeName.toUpperCase())){
-                greetedNamesArray.push(giveMeName.toUpperCase());
-                count = greetedNamesArray.filter(word => word !== '').length;
 
-               }
            }
 
-        else if(LanguageIn == "afrikaans" && giveMeName !==""){
+        else if(LanguageIn == "afrikaans" && giveMeName !=="" && alphabet.test(giveMeName )){
             languageChoice = "Hallo, " + giveMeName;
-            if (!greetedNamesArray.includes(giveMeName.toUpperCase())){
-                greetedNamesArray.push(giveMeName.toUpperCase());
-                count = greetedNamesArray.filter(word => word !== '').length;
 
-               }
            }
-        else  if (LanguageIn == "isiXhosa" && giveMeName !==""){
+        else  if (LanguageIn == "isiXhosa" && giveMeName !=="" && alphabet.test(giveMeName )){
             languageChoice = "Molo, " + giveMeName;
-            if (!greetedNamesArray.includes(giveMeName.toUpperCase())){
-                greetedNamesArray.push(giveMeName.toUpperCase());
-                count = greetedNamesArray.filter(word => word !== '').length;
-               }
+
            }
         else if (returnEmptyButtonsAndTextbox =! ''){
                 languageChoice = '';
         }
+        if (counted[giveMeName2] == undefined && alphabet.test(giveMeName2)) {
+            counted[giveMeName2] = 1;
+          } else if (returnForEmptyButtons == '' && alphabet.test(giveMeName2)) {
+            counted[giveMeName2] ++;
+          }
+
+        count = Object.keys(counted).length;
+        greetedNames = Object.keys(counted);
+        countOfNames = Object.values(counted);
+
     }
-    function returnName(){
-        return giveMeName;
-    }
+   /* function allmyLists(getName){
+
+           if (counted[getName] == undefined) {
+             counted[getName] = 1;
+           } else if (returnForEmptyButtons == '' ) {
+             counted[getName] ++;
+           }
+
+         count = Object.keys(counted).length;
+         greetedNames = Object.keys(counted);
+         countOfNames = Object.values(counted);
+    }*/
+
     function returnChosenLanguage(){
         return languageChoice;
     }
     function getMyCount(){
-
         return count;
     }
-    function getLangChoice(){
-        return typeOfLanguage;
-    }
     function returnStoredInArray(){
-        return greetedNamesArray;
+        return counted;
     }
+
     function returnEmptyButtonsAndTextbox(){
         return returnForEmptyButtons;
     }
     return{
         enterNameAndLanguage,
         returnChosenLanguage,
-        returnName,
         getMyCount,
         returnStoredInArray,
         notCheckedbutton,
         returnEmptyButtonsAndTextbox,
-        getLangChoice
+        //allmyLists
     }
 }

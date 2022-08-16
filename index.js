@@ -35,20 +35,18 @@ app.post('/greetings', function (req, res) {
   console.log(req.body.languageTypeRadio)
   greetMe.enterNameAndLanguage(req.body.name, req.body.languageTypeRadio)
   greetMe.notCheckedbutton(req.body.name, req.body.languageTypeRadio)
+  //greetMe.allmyLists(req.body.name)
   res.redirect("/");
 });
 
 app.get("/actions", function (req, res) {
-  res.render('actions', {count: greetMe.getMyCount(),
-                         languageChoice: greetMe.getLangChoice(),
-                         Name: greetMe.returnName()
-          })
-
-
+  res.render('actions', {
+                         nameAndCountList: greetMe.returnStoredInArray(),
+      })
   });
 
 
-  let PORT = process.env.PORT || 3013;
+  let PORT = process.env.PORT || 3011;
 
   app.listen(PORT, function () {
     console.log("App starting on port", PORT); // message displayed on the terminal

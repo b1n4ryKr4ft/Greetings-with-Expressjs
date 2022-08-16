@@ -108,6 +108,11 @@ body {
 	border-color: aliceblue;
 	border-radius: 10px;
 }
+table, th, td {
+	border: 2px solid antiquewhite;
+	border-collapse: collapse;
+	margin: auto;
+  }
 
 .errorMessages{
 	font-size: 30px;

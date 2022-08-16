@@ -1,11 +1,22 @@
-    <label for="fname">Greeting </label>
-    <a href="http://localhost:3013">Back</a>
-    <table class="myNamesAndCount">
-        <tr>
-            <th>Names</th>
-            <th>Number of times a name is greeted</th>
-        </tr>
-        <tr>
+<label for="fname">Greeting </label>
+ <nav class="navbar">
+<a href="/">Back</a>
+</nav>
 
-        </tr>
-    </table>
+<table class="myNamesAndCount">
+    <tr>
+        <th>Names</th>
+        <th>Number of greetings</th>
+    </tr>
+    {{#each nameAndCountList}}
+    <tr>
+        <td>
+            {{@key}}
+        </td>
+        <td>
+            {{this}}
+        </td>
+    </tr>
+    {{/each}}
+</table>
+
