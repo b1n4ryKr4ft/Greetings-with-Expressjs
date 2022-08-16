@@ -46,7 +46,7 @@ app.get("/actions", function (req, res) {
   });
 
 
-  let PORT = process.env.PORT || 3011;
+  let PORT = process.env.PORT || 3010;
 
   app.listen(PORT, function () {
     console.log("App starting on port", PORT); // message displayed on the terminal
