@@ -114,7 +114,7 @@ body {
     transform: translate(-50%, 0)
 }
 table, th, td {
-	border: 2px solid antiqewhite;
+	border: 2px solid antiquewhite;
 	border-collapse: collapse;
 	margin: auto;
   }
