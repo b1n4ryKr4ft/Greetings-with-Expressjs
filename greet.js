@@ -11,7 +11,13 @@ module.exports = function greetMeInLangage(){
         counted = {}
      }
      function resetCount(){
-        count = 0
+        count = 0;
+     }
+     function resetError(){
+        returnForEmptyButtons = ''
+     }
+     function resetGreeting(){
+        languageChoice = ''
      }
     function notCheckedbutton(nameIn, languageType){
         giveMeName = nameIn
@@ -98,6 +104,8 @@ module.exports = function greetMeInLangage(){
         greetedNamesArray,
         resetAll,
         resetCount,
+        resetError,
+        resetGreeting
         //allmyLists
     }
 }

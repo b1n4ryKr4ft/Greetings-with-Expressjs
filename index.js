@@ -37,7 +37,9 @@ app.post('/greetings', function (req, res) {
 });
 app.post("/reset", function (req, res) {
   greetMe.resetAll();
-  greetMe. resetCount()
+  greetMe. resetCount();
+  greetMe.resetError();
+  greetMe.resetGreeting()
   res.redirect("/");
   });
 
