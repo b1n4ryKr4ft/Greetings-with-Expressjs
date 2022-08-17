@@ -31,11 +31,8 @@ app.get("/", function (req, res) {
   });
 
 app.post('/greetings', function (req, res) {
-  console.log(req.body.name)
-  console.log(req.body.languageTypeRadio)
   greetMe.enterNameAndLanguage(req.body.name, req.body.languageTypeRadio)
   greetMe.notCheckedbutton(req.body.name, req.body.languageTypeRadio)
-  //greetMe.allmyLists(req.body.name)
   res.redirect("/");
 });
 
@@ -49,4 +46,3 @@ app.get("/actions", function (req, res) {
   app.listen(process.env.PORT || 3000, function(){
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
     });
-    

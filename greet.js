@@ -35,6 +35,7 @@ module.exports = function greetMeInLangage(){
         let giveMeName2 = aNameIn.toUpperCase();
         let alphabet = /^[a-z A-Z]+$/;
         typeOfLanguage = LanguageIn;
+
         if (LanguageIn == "english" && giveMeName !=="" && alphabet.test(giveMeName )){
             languageChoice = "Hello, " + giveMeName;
 
@@ -61,20 +62,8 @@ module.exports = function greetMeInLangage(){
         greetedNames = Object.keys(counted);
         countOfNames = Object.values(counted);
 
+
     }
-   /* function allmyLists(getName){
-
-           if (counted[getName] == undefined) {
-             counted[getName] = 1;
-           } else if (returnForEmptyButtons == '' ) {
-             counted[getName] ++;
-           }
-
-         count = Object.keys(counted).length;
-         greetedNames = Object.keys(counted);
-         countOfNames = Object.values(counted);
-    }*/
-
     function returnChosenLanguage(){
         return languageChoice;
     }
@@ -84,9 +73,17 @@ module.exports = function greetMeInLangage(){
     function returnStoredInArray(){
         return counted;
     }
-
+    function resetAll(){
+       return counted = {};
+    }
     function returnEmptyButtonsAndTextbox(){
         return returnForEmptyButtons;
+    }
+    function countEachName(){
+        return countOfNames
+    }
+    function greetedNamesArray(){
+        return greetedNames
     }
     return{
         enterNameAndLanguage,
@@ -95,6 +92,9 @@ module.exports = function greetMeInLangage(){
         returnStoredInArray,
         notCheckedbutton,
         returnEmptyButtonsAndTextbox,
+        countEachName,
+        greetedNamesArray,
+        resetAll
         //allmyLists
     }
 }

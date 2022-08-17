@@ -99,7 +99,6 @@ body {
 	height: 50px;
 	font-size: large;
 	margin-top: 20px;
-	margin-left: 30px;
 
 }
 .resetCounterButton{
@@ -107,9 +106,15 @@ body {
 	color: aliceblue;
 	border-color: aliceblue;
 	border-radius: 10px;
+	width: 150px;
+	height: 50px;
+	font-size: large;
+	margin-top: 126px;
+    left: 50%;
+    transform: translate(-50%, 0)
 }
 table, th, td {
-	border: 2px solid antiquewhite;
+	border: 2px solid antiqewhite;
 	border-collapse: collapse;
 	margin: auto;
   }
@@ -121,6 +126,9 @@ table, th, td {
 .errorMessages{
 	animation: blinker 1s step-start infinite;
   }
+.container2{
+	margin: auto;
+}
 
   @keyframes blinker {
 	50% {

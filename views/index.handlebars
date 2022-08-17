@@ -15,6 +15,7 @@
         <div class="greetPeople">
             Greeting
         </div>
+        <div class="container2">
         <div class="enterName">
             <span class="textboxName">
                 <form action="/greetings" method="POST">
@@ -42,11 +43,12 @@
                     </div>
                 </form>
             </span>
-
             <span class="counttracker">
                 <span class="count">{{count}}</span>
             </span>
-
+            <form action="/reset" method="POST">
+                  <button class="button-primary resetCounterButton" type="submit" name="button">Reset Counter</button>
+            </form>
         </div>
         <div class="greetSection">
             <span class="greeting">{{greeted}}</span>
@@ -55,10 +57,10 @@
         <div class="errorMessages">
             <span class="greeting}">{{errMessage}}</span>
         </div>
-                <div class="Names">
+            <div class="Names">
             <a href="/actions">Greeted Names</a>
         </div>
-
+    </div>
     </div>
 </body>
 
