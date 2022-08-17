@@ -88,7 +88,7 @@ body {
 
 	text-align: center;
 	background-color: #283618;
-	margin: auto;
+	font-size:x-large;
 }
 .greetMeButton{
 	background-color: #283618;
@@ -121,13 +121,21 @@ table, th, td {
 
 .errorMessages{
 	font-size: 30px;
-	padding-top: 150px;
+	padding-top: 100px;
 }
 .errorMessages{
 	animation: blinker 1s step-start infinite;
   }
 .container2{
 	margin: auto;
+}
+.Names{
+	background-color: antiquewhite;
+	margin-top: 20px;
+}
+.navbar{
+	background-color: antiquewhite;
+	margin-bottom: 20px;
 }
 
   @keyframes blinker {

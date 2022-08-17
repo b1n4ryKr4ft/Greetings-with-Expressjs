@@ -7,7 +7,12 @@ module.exports = function greetMeInLangage(){
     let returnForEmptyButtons;
     let counted = {};
 
-
+    function resetAll(){
+        counted = {}
+     }
+     function resetCount(){
+        count = 0
+     }
     function notCheckedbutton(nameIn, languageType){
         giveMeName = nameIn
         if(typeof window == 'undefined' && giveMeName == "" ){
@@ -71,10 +76,7 @@ module.exports = function greetMeInLangage(){
         return count;
     }
     function returnStoredInArray(){
-        return counted;
-    }
-    function resetAll(){
-       return counted = {};
+            return counted;
     }
     function returnEmptyButtonsAndTextbox(){
         return returnForEmptyButtons;
@@ -94,7 +96,8 @@ module.exports = function greetMeInLangage(){
         returnEmptyButtonsAndTextbox,
         countEachName,
         greetedNamesArray,
-        resetAll
+        resetAll,
+        resetCount,
         //allmyLists
     }
 }

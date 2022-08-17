@@ -35,6 +35,11 @@ app.post('/greetings', function (req, res) {
   greetMe.notCheckedbutton(req.body.name, req.body.languageTypeRadio)
    res.redirect("/");
 });
+app.post("/reset", function (req, res) {
+  greetMe.resetAll();
+  greetMe. resetCount()
+  res.redirect("/");
+  });
 
 app.get("/actions", function (req, res) {
   res.render('actions', {

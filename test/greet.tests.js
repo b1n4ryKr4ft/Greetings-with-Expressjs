@@ -89,7 +89,7 @@ it("should be able to count the names greeted but not twice", function(){
 });
 
 it("should be able to greet a person in english when a person enters their name and count", function(){
-    
+
     let greetings = greetMeInLangage();
 
     greetings.enterNameAndLanguage('Wiseman', "english");
@@ -117,7 +117,6 @@ it("should be able to greet a person in afrikaans when a person enters their nam
     let greetings = greetMeInLangage();
 
     greetings.enterNameAndLanguage('Wiseman', "afrikaans");
-    greetings.enterNameAndLanguage('Wiseman', "isiXhosa");
     assert.deepEqual( [ 1 ] , greetings.countEachName());
 
 });
