@@ -33,7 +33,7 @@ app.get("/", function (req, res) {
 app.post('/greetings', function (req, res) {
   greetMe.enterNameAndLanguage(req.body.name, req.body.languageTypeRadio)
   greetMe.notCheckedbutton(req.body.name, req.body.languageTypeRadio)
-  res.redirect("/");
+   res.redirect("/");
 });
 
 app.get("/actions", function (req, res) {
