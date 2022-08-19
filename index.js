@@ -44,9 +44,27 @@ app.post("/reset", function (req, res) {
   });
 
 app.get("/actions", function (req, res) {
+
   res.render('actions', {
                          nameAndCountList: greetMe.returnStoredInArray(),
       })
+  });
+
+
+app.get("/namesGreeted/:name", function (req, res) {
+  let countOfName;
+  let myName = req.params.name;
+  if (greetMe.returnStoredInArray()[myName] == 1){
+   countOfName = greetMe.returnStoredInArray()[myName] + ' time'
+  }
+   else if (greetMe.returnStoredInArray()[myName] > 1){
+   countOfName = greetMe.returnStoredInArray()[myName] + ' times'
+    }
+
+  res.render('nameGreeted', {
+      myNames: myName,
+      countsOfEach: countOfName,
+})
   });
 
 

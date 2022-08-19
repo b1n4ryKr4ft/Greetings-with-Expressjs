@@ -1,17 +1,17 @@
 <label for="fname">Greeting </label>
- <nav class="navbar">
-<a href="/">Back</a>
+<nav class="navbar">
+    <a href="/">Back</a>
 </nav>
 
 <table class="myNamesAndCount">
     <tr>
-        <th>Names</th>
+        <th> Names </a></th>
         <th>Number of greetings</th>
     </tr>
     {{#each nameAndCountList}}
     <tr>
         <td>
-            {{@key}}
+            <a href="/namesGreeted/{{@key}}"> {{@key}}</a>
         </td>
         <td>
             {{this}}
@@ -19,4 +19,3 @@
     </tr>
     {{/each}}
 </table>
-

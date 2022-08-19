@@ -93,6 +93,10 @@ module.exports = function greetMeInLangage(){
     function greetedNamesArray(){
         return greetedNames
     }
+    function giveMyName(){
+        let upperCase =  giveMeName.toUpperCase()
+        return upperCase;
+    }
     return{
         enterNameAndLanguage,
         returnChosenLanguage,
@@ -105,7 +109,8 @@ module.exports = function greetMeInLangage(){
         resetAll,
         resetCount,
         resetError,
-        resetGreeting
+        resetGreeting,
+        giveMyName
         //allmyLists
     }
 }
