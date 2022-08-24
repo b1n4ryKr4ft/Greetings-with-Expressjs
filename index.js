@@ -30,14 +30,16 @@ app.get("/", function (req, res) {
 
   });
 
-// Application Programming Interface
+// Application Programming Interface (API)
 app.get('/languages', dbQueries.getGreetingLanguages);
+app.get('/getGreetingsCount', dbQueries.getGreetingsCounter);
 
 app.post('/greetings', function (req, res) {
   greetMe.enterNameAndLanguage(req.body.name, req.body.languageTypeRadio)
   greetMe.notCheckedbutton(req.body.name, req.body.languageTypeRadio)
    res.redirect("/");
 });
+
 app.post("/reset", function (req, res) {
   greetMe.resetAll();
   greetMe. resetCount();
