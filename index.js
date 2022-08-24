@@ -4,6 +4,7 @@ const bodyParser = require("body-parser")
 const app = express();
 const greetingNames = require("./greet.js")
 const greetMe = greetingNames()
+const dbQueries = require('./db-queries')
 
 
 
@@ -16,10 +17,9 @@ app.set("view engine", "handlebars");
 app.use(express.static("public"));
 //The app.use() function is used to mount the specified middleware function(s) at the path which is being specified........app.use(path, callback)
 //makes the public folder visible
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
-
 
 app.get("/", function (req, res) {
     res.render("index", {
@@ -29,6 +29,9 @@ app.get("/", function (req, res) {
     });
 
   });
+
+// Application Programming Interface
+app.get('/languages', dbQueries.getGreetingLanguages);
 
 app.post('/greetings', function (req, res) {
   greetMe.enterNameAndLanguage(req.body.name, req.body.languageTypeRadio)
@@ -46,10 +49,9 @@ app.post("/reset", function (req, res) {
 app.get("/actions", function (req, res) {
 
   res.render('actions', {
-                         nameAndCountList: greetMe.returnStoredInArray(),
-      })
-  });
-
+    nameAndCountList: greetMe.returnStoredInArray(),
+  })
+});
 
 app.get("/namesGreeted/:name", function (req, res) {
   let countOfName;
