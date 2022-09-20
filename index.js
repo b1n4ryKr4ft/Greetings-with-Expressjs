@@ -21,18 +21,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
 
-app.get("/", function (req, res) {
+app.get("/", async (req, res) => {
     res.render("index", {
+      languages: await dbQueries.getGreetingLanguages(),
+      count: await dbQueries.getGreetingsCounter(),
       greeted: greetMe.returnChosenLanguage(),
-      count: greetMe.getMyCount(),
       errMessage: greetMe.returnEmptyButtonsAndTextbox(),
     });
 
   });
-
-// Application Programming Interface (API)
-app.get('/languages', dbQueries.getGreetingLanguages);
-app.get('/getGreetingsCount', dbQueries.getGreetingsCounter);
 
 app.post('/greetings', function (req, res) {
   greetMe.enterNameAndLanguage(req.body.name, req.body.languageTypeRadio)
@@ -73,5 +70,5 @@ app.get("/namesGreeted/:name", function (req, res) {
 
 
   app.listen(process.env.PORT || 3000, function(){
-    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+    console.log(`Express server listening on port ${this.address().port} in ${app.settings.env} mode`);
     });

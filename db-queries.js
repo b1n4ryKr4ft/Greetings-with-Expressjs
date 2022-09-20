@@ -1,36 +1,20 @@
-const Pool = require("pg").Pool;
+const db = require("./postgres-connection"); 
 
-const pool = new Pool({
-    user: 'b1n4rykr4ft',
-    host: 'postgres-b1n4ry-kr4ft.postgres.database.azure.com',
-    database: 'greetings_with_express',
-    password: 'gh0stfly3R',
-    port: 5432
-});
+// Queries
+const ALL_LANGUAGES = "SELECT id, name from languages;";
+const GREETINGS_COUNTER = "SELECT count(id) counter from greetings;"
 
+// Methods
+const getGreetingLanguages = async () => {
 
-const getGreetingLanguages = (request, response) => {
-
-    pool.query("SELECT name from languages", (error, results) =>{
-        if(error){
-
-            console.log(error.message);
-            throw error;
-        }
-        response.status(200).json(results.rows);
-    })
+    let languages = await db.manyOrNone(ALL_LANGUAGES);
+    return languages;
 }
 
-const getGreetingsCounter = (request, response) => {
+const getGreetingsCounter = async () => {
 
-    pool.query("SELECT count(id) as greetingsCount from greeting", (error, results) => {
-        if(error){
-
-            console.log(error.message);
-            throw error
-        }
-        response.status(200).json(results.rows);
-    })
+    let greetingsRecord = await db.oneOrNone(GREETINGS_COUNTER);
+    return greetingsRecord.counter;
 }
 
 module.exports = {

@@ -6,24 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <script src="/path/to/flash.min.js"></script>
     <title>Home</title>
 </head>
 
 <body>
     <div class="container">
         <div class="greetPeople">
-            Greeting
+            Greetings from Nodejs and Express
         </div>
         <div class="container2">
             <div class="enterName">
                 <span class="textboxName">
-                    <form action="/greetings" method="POST" id="greetingsForm">
-                        <label for="fname">Greeting </label>
+                    <form action="/greetings" method="POST">
+                        <label for="fname">Greetings </label>
                         <input class="textName" type="text" name="name" value="" placeholder="Enter your name"
                             class="fname">
                         <div class="languageTypes">
-                            <div class="radiobuttons"></div>
+                            <div class="radiobuttons">
+                                {{#each languages}}
+                                <label class="">
+                                    <input type="radio" name="languageTypeRadio" class="languageTypeRadio"
+                                        value={{id}}>
+                                    <span class="label-body">{{name}}</span>
+                                </label>
+                                {{/each}}
+                            </div>
                         </div>
                         <div class="buttons">
                             <button class="button-primary greetMeButton" type="submit" name="button">Greet Me</button>
@@ -38,60 +45,19 @@
                 </form>
             </div>
             <div class="greetSection">
-                <span class="greeting">{{greeted}}</span>
-
+                <span>{{messages.greeted}}</span>
             </div>
             <div class="errorMessages">
-                <span class="greeting}">{{errMessage}}</span>
+                {{#if messages.errorMessages}}
+                <span>{{messages.errorMessages}}</span>
+                {{/if}}
             </div>
             <div class="Names">
+                {{#if count}}
                 <a href="/actions">Greeted Names</a>
+                {{/if}}
             </div>
         </div>
     </div>
-    <script>
-        const makeHttpRequest = (action, url) => {
-            
-            const xhttp = new XMLHttpRequest();
-
-            xhttp.open(action, url, false);
-            xhttp.send();
-            
-            return xhttp.responseText;
-        }
-
-        const loadLanguages = () => {
-            
-            var greetLanguages = makeHttpRequest("GET", "http://localhost:3000/languages");
-            const languages = JSON.parse(greetLanguages);
-    
-            var languagesRadio = "";
-
-            for(let lang of languages){
-                const langStr = `
-                <label class="">
-                    <input type="radio" name="languageTypeRadio" class="languageTypeRadio"
-                        value="${lang.name.toLowerCase()}">
-                    <span class="label-body">${lang.name}</span>
-                </label>`
-
-                languagesRadio += langStr;
-            }
-
-            var form = document.getElementById("greetingsForm");
-            form.children[2].children[0].innerHTML = languagesRadio;
-        }
-
-        const loadGreetingsCount = () => {
-
-            var count = 0;
-
-            var greetingsCount = makeHttpRequest("GET", "http://localhost:3000/getGreetingsCount");
-            var greetings = JSON.parse(greetLanguages);
-        }
-
-        loadLanguages();
-    </script>
 </body>
-
 </html>
