@@ -4,9 +4,7 @@ const bodyParser = require("body-parser")
 const app = express();
 const greetingNames = require("./greet.js")
 const greetMe = greetingNames()
-const dbQueries = require('./db-queries')
-
-
+const dbQueries = require('./database/db-queries')
 
 app.engine("handlebars", exphbs.engine({ defaultLayout: "main" }));
 //app.engine(ext, callback)
@@ -65,8 +63,8 @@ app.get("/namesGreeted/:name", function (req, res) {
   res.render('nameGreeted', {
       myNames: myName,
       countsOfEach: countOfName,
-})
-  });
+  })
+});
 
 
   app.listen(process.env.PORT || 3000, function(){
