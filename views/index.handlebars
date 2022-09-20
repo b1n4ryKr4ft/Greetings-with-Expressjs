@@ -18,28 +18,12 @@
         <div class="container2">
             <div class="enterName">
                 <span class="textboxName">
-                    <form action="/greetings" method="POST">
+                    <form action="/greetings" method="POST" id="greetingsForm">
                         <label for="fname">Greeting </label>
                         <input class="textName" type="text" name="name" value="" placeholder="Enter your name"
                             class="fname">
                         <div class="languageTypes">
-                            <div class="radiobuttons">
-                                <label class="">
-                                    <input type="radio" name="languageTypeRadio" class="languageTypeRadio"
-                                        value="english">
-                                    <span class="label-body">English</span>
-                                </label>
-                                <label class="">
-                                    <input type="radio" name="languageTypeRadio" class="languageTypeRadio"
-                                        value="afrikaans">
-                                    <span class="label-body">Afrikaans</span>
-                                </label>
-                                <label class="">
-                                    <input type="radio" name="languageTypeRadio" class="languageTypeRadio"
-                                        value="isiXhosa">
-                                    <span class="label-body">isiXhosa</span>
-                                </label>
-                            </div>
+                            <div class="radiobuttons"></div>
                         </div>
                         <div class="buttons">
                             <button class="button-primary greetMeButton" type="submit" name="button">Greet Me</button>
@@ -65,6 +49,49 @@
             </div>
         </div>
     </div>
+    <script>
+        const makeHttpRequest = (action, url) => {
+            
+            const xhttp = new XMLHttpRequest();
+
+            xhttp.open(action, url, false);
+            xhttp.send();
+            
+            return xhttp.responseText;
+        }
+
+        const loadLanguages = () => {
+            
+            var greetLanguages = makeHttpRequest("GET", "http://localhost:3000/languages");
+            const languages = JSON.parse(greetLanguages);
+    
+            var languagesRadio = "";
+
+            for(let lang of languages){
+                const langStr = `
+                <label class="">
+                    <input type="radio" name="languageTypeRadio" class="languageTypeRadio"
+                        value="${lang.name.toLowerCase()}">
+                    <span class="label-body">${lang.name}</span>
+                </label>`
+
+                languagesRadio += langStr;
+            }
+
+            var form = document.getElementById("greetingsForm");
+            form.children[2].children[0].innerHTML = languagesRadio;
+        }
+
+        const loadGreetingsCount = () => {
+
+            var count = 0;
+
+            var greetingsCount = makeHttpRequest("GET", "http://localhost:3000/getGreetingsCount");
+            var greetings = JSON.parse(greetLanguages);
+        }
+
+        loadLanguages();
+    </script>
 </body>
 
 </html>
